@@ -41,7 +41,7 @@ class TestUserRegistration:
         assert result == False
 
     def test_validate_Password(self):
-        result = self.obj.validate_password("Aabcdpanga")
+        result = self.obj.validate_password("Aabcdpanga12")
         assert result == True
 
     def test_check_Invalid_Password(self):
