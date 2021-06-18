@@ -39,3 +39,11 @@ class TestUserRegistration:
     def test_check_Invalid_Phone_Number(self):
         result = self.obj.validate_phone_number("7978")
         assert result == False
+
+    def test_validate_Password_Having_8Chars(self):
+        result = self.obj.validate_password("abcdpanga")
+        assert result == True
+
+    def test_check_Invalid_Password_Having_8Chars(self):
+        result = self.obj.validate_password("abcd")
+        assert result == False
