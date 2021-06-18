@@ -23,3 +23,11 @@ class TestUserRegistration:
     def test_check_Invalid_LastName(self):
         result = self.obj.validate_last_name("panda")
         assert result == False
+
+    def test_validate_Email(self):
+        result = self.obj.validate_email("santospanda111@gmail.com")
+        assert result == True
+
+    def test_check_Invalid_Email(self):
+        result = self.obj.validate_email("abc@.com.my")
+        assert result == False
