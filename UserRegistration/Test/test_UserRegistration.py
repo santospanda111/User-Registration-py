@@ -31,3 +31,11 @@ class TestUserRegistration:
     def test_check_Invalid_Email(self):
         result = self.obj.validate_email("abc@.com.my")
         assert result == False
+
+    def test_validate_Phone_Number(self):
+        result = self.obj.validate_phone_number("91 7978715564")
+        assert result == True
+
+    def test_check_Invalid_Phone_Number(self):
+        result = self.obj.validate_phone_number("7978")
+        assert result == False
