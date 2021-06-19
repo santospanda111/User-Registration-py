@@ -1,6 +1,6 @@
 import re
 
-from UserRegistration.main.WrongInputException import WrongInputException
+from UserRegistration.main.wrong_input_exception import WrongInputException
 
 
 class User_Registration:
@@ -19,13 +19,12 @@ class User_Registration:
         :return: if first name matches with pattern, return True
         """
         try:
-            pattern = re.compile(self.FIRST_NAME_PATTERN)
-            match = pattern.search(first_name)
-            if not match:
-                return False
+            pattern = re.compile(self.FIRST_NAME_PATTERN).search(first_name)
+            if not pattern:
+                raise WrongInputException("Invalid input")
             else:
                 return True
-        except WrongInputException as e:
+        except Exception as e:
             print(e)
 
     def validate_last_name(self, last_name):
@@ -37,10 +36,10 @@ class User_Registration:
             pattern = re.compile(self.LAST_NAME_PATTERN)
             match = pattern.search(last_name)
             if not match:
-                return False
+                raise WrongInputException("Invalid input")
             else:
                 return True
-        except WrongInputException as e:
+        except Exception as e:
             print(e)
 
     def validate_email(self, email):
@@ -52,10 +51,10 @@ class User_Registration:
             pattern = re.compile(self.EMAIL_PATTERN)
             match = pattern.search(email)
             if not match:
-                return False
+                raise WrongInputException("Invalid input")
             else:
                 return True
-        except WrongInputException as e:
+        except Exception as e:
             print(e)
 
     def validate_phone_number(self, phone_number):
@@ -67,10 +66,10 @@ class User_Registration:
             pattern = re.compile(self.PHONE_NUMBER_PATTERN)
             match = pattern.search(phone_number)
             if not match:
-                return False
+                raise WrongInputException("Invalid input")
             else:
                 return True
-        except WrongInputException as e:
+        except Exception as e:
             print(e)
 
     def validate_password(self, password):
@@ -85,10 +84,10 @@ class User_Registration:
             pattern = re.compile(self.PASSWORD_PATTERN)
             match = pattern.search(password)
             if not match:
-                return False
+                raise WrongInputException("Invalid input")
             else:
                 return True
-        except WrongInputException as e:
+        except Exception as e:
             print(e)
 
 
