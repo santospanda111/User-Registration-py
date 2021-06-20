@@ -11,7 +11,7 @@ class User_Registration:
     LAST_NAME_PATTERN = r'^[A-Z]{1}[a-z]{2,}$'
     EMAIL_PATTERN = r'^[A-Za-z0-9]+([-.+_]{1}[0-9A-Za-z]+)*[@][A-Za-z0-9]+[.][a-zA-Z]{2,4}([.,]{1}[a-z]{2,3}){0,1}$'
     PHONE_NUMBER_PATTERN = r'^[0-9]{1,3} [0-9]{10}$'
-    PASSWORD_PATTERN = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]){8,}.*$'
+    PASSWORD_PATTERN = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]?){8,}.*$'
 
     def validate_first_name(self, first_name):
         """
@@ -33,9 +33,8 @@ class User_Registration:
         :return: if last name matches with pattern, return True
         """
         try:
-            pattern = re.compile(self.LAST_NAME_PATTERN)
-            match = pattern.search(last_name)
-            if not match:
+            pattern = re.compile(self.LAST_NAME_PATTERN).search(last_name)
+            if not pattern:
                 raise WrongInputException("Invalid input")
             else:
                 return True
@@ -48,9 +47,8 @@ class User_Registration:
         :return: if email matches with pattern, return True
         """
         try:
-            pattern = re.compile(self.EMAIL_PATTERN)
-            match = pattern.search(email)
-            if not match:
+            pattern = re.compile(self.EMAIL_PATTERN).search(email)
+            if not pattern:
                 raise WrongInputException("Invalid input")
             else:
                 return True
@@ -63,9 +61,8 @@ class User_Registration:
         :return: if phone_number matches with pattern, return True
         """
         try:
-            pattern = re.compile(self.PHONE_NUMBER_PATTERN)
-            match = pattern.search(phone_number)
-            if not match:
+            pattern = re.compile(self.PHONE_NUMBER_PATTERN).search(phone_number)
+            if not pattern:
                 raise WrongInputException("Invalid input")
             else:
                 return True
@@ -77,13 +74,13 @@ class User_Registration:
         -Password must having at least 8 characters.
         -Must have at least 1 uppercase letter.
         -Must have 1 number.
+        -Must have 1 special character.
         :param password:
         :return: if password matches with pattern, return True
         """
         try:
-            pattern = re.compile(self.PASSWORD_PATTERN)
-            match = pattern.search(password)
-            if not match:
+            pattern = re.compile(self.PASSWORD_PATTERN).search(password)
+            if not pattern:
                 raise WrongInputException("Invalid input")
             else:
                 return True

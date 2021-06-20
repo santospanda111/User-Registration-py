@@ -49,7 +49,7 @@ class TestUserRegistration:
             WrongInputException("Invalid input")
 
     def test_validate_password(self):
-        result = self.obj.validate_password("Aabcdpanga12")
+        result = self.obj.validate_password("Aabcdpanga12@")
         assert result == True
 
     def test_check_invalid_password(self):
