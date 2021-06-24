@@ -1,6 +1,8 @@
 import re
 
 from UserRegistration.main.wrong_input_exception import WrongInputException
+import logging
+logger = logging.getLogger()
 
 
 class User_Registration:
@@ -22,10 +24,9 @@ class User_Registration:
             pattern = re.compile(self.FIRST_NAME_PATTERN).search(first_name)
             if not pattern:
                 raise WrongInputException("Invalid input")
-            else:
-                return True
+            return True
         except Exception as e:
-            print(e)
+            logger.error(e)
 
     def validate_last_name(self, last_name):
         """
@@ -36,10 +37,9 @@ class User_Registration:
             pattern = re.compile(self.LAST_NAME_PATTERN).search(last_name)
             if not pattern:
                 raise WrongInputException("Invalid input")
-            else:
-                return True
+            return True
         except Exception as e:
-            print(e)
+            logger.error(e)
 
     def validate_email(self, email):
         """
@@ -50,10 +50,9 @@ class User_Registration:
             pattern = re.compile(self.EMAIL_PATTERN).search(email)
             if not pattern:
                 raise WrongInputException("Invalid input")
-            else:
-                return True
+            return True
         except Exception as e:
-            print(e)
+            logger.error(e)
 
     def validate_phone_number(self, phone_number):
         """
@@ -64,10 +63,9 @@ class User_Registration:
             pattern = re.compile(self.PHONE_NUMBER_PATTERN).search(phone_number)
             if not pattern:
                 raise WrongInputException("Invalid input")
-            else:
-                return True
+            return True
         except Exception as e:
-            print(e)
+            logger.error(e)
 
     def validate_password(self, password):
         """
@@ -82,10 +80,9 @@ class User_Registration:
             pattern = re.compile(self.PASSWORD_PATTERN).search(password)
             if not pattern:
                 raise WrongInputException("Invalid input")
-            else:
-                return True
+            return True
         except Exception as e:
-            print(e)
+            logger.error(e)
 
 
 if __name__ == "__main__":
